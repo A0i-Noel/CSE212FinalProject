@@ -1,7 +1,7 @@
 # Queue
 
-### Intoroduction
-Queue is a method to make list which is caracterized __First In First Out(FIFO)__. This method is good for making wait lists for long process. 
+### Introduction
+Queue is a method to make list which is characterized __First In First Out(FIFO)__. This method is good for making wait lists for long process. 
 
 ### Visual and Structure Example to get image
 ![FIFO Visual Example](Assets/Queue/Q-Example1.png)
@@ -25,7 +25,7 @@ self.queue.append(data)
 <br />
 #### -Dequeue
 ![Dequeue Example](Assets/Queue/DequeueExample.png)
-Dequeue is a process to output item from queue. Manly front item will be output, but it can change based on the condition (queue's priority level). Then, the perfomance will be O(n)
+Dequeue is a process to output item from queue. Manly front item will be output, but it can change based on the condition (queue's priority level). Then, the performance will be O(n)
 ```python
 if len(self.queue) <= 0:
       raise IndexError() ###Add condition, if it needs
@@ -34,8 +34,12 @@ del self.queue[0]
 return value
 ```
 
+### Insert and Remove
+
+### _Circular Queue (Advanced)_
+
 ### Best Usage
-Queue is good for the operation which does not need to or cannot be processed immediatly, but have to be processed in FIFO order.
+Queue is good for the operation which does not need to or cannot be processed immediately, but have to be processed in FIFO order.
 <br />
 ![](Assets/Queue/QueueImage.jpeg)
 <br />

@@ -9,25 +9,24 @@ I choose these three topics below which is related to each other. I will focus o
 -Intoroduction
 -Overall explanation and flow
 ## [2.Queue](1-queue.md)
--Intoroduction
+-Introduction
 -Visual and Structure Example to get image
 -Process and Performance
--Best Usage
 -Enqueue and Dequeue
 -Insert and Remove
+-Best Usage
 -__Advanced__ Circular Queue
 -Problems and Solution
 ## [3.Linked List](2-linkedList.md)
--Intoroduction
+-Introduction
 -Visual and Structure Example to get image
 -Process and Performance
 -Best Usage
 -Similar points with Queue and differences
--Next and Prev, Head and Tail
--Insert and Remove
+-Insert,  Remove, and Replace
 -Problems and Solution
 ## [4.Tree](3-tree.md)
--Intoroduction
+-Introduction
 -Visual and Structure Example to get image
 -Process and Performance
 -Best Usage
