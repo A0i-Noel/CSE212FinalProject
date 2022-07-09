@@ -8,7 +8,7 @@ Queue is a method to make list which is characterized __First In First Out(FIFO)
 As this image represents, this method is always keep tracking what is the first item and what new item will be added. 
 ### Process and Performance
 Queue method tracks which is the next output and which is the last input by __Front__ and __Back(or Rear)__. And they are keep changing when input or output occur. This input and output process is called  __Enqueue__ and __Dequeue__. When front item is dequeued, second item will be the new front item. As same as this, when new item is enqueued, the item will be the new back instead of previous back item.
-<br />
+
 ![Front and Back](Assets/Queue/QueueProcess.png)
 
 
@@ -16,13 +16,14 @@ As an algorithms, it is working __O(1)__ performances except dequeue under dynam
 ### Enqueue and Dequeue
 #### -Enqueue
 Enqueue is a process to input new item at the end of other queue. This new item acts as a back (rear) which can be a sign this item is the last one.
+
 ![Enqueue Example](Assets/Queue/EnqueueExample.png)
 
 ```python
 self.queue.append(data)
 ###queue has dynamic array or fixed array
 ```
-<br />
+
 #### -Dequeue
 ![Dequeue Example](Assets/Queue/DequeueExample.png)
 Dequeue is a process to output item from queue. Manly front item will be output, but it can change based on the condition (queue's priority level). Then, the performance will be O(n)
@@ -34,18 +35,16 @@ del self.queue[0]
 return value
 ```
 
-### Insert and Remove
-
 ### _Circular Queue (Advanced)_
 
 ### Best Usage
 Queue is good for the operation which does not need to or cannot be processed immediately, but have to be processed in FIFO order.
-<br />
+
 ![](Assets/Queue/QueueImage.jpeg)
-<br />
+
 When many people can access simultaneously, queue method works to make the process easier. In many case, they set the __maximum size__ of the queue not to make items or customers waiting for a long time. 
 
-#### Example
+#### Example (Problem)
 ```python
 class Customer_Service:
     """
@@ -146,13 +145,15 @@ print("Service Queue: ", service)
 
 ### Problems and Solution.
 
-####Problem
+#### Problem
 
 Based on the example above, please implement a code with queue method. The conditions are following:
 1. The maximum size of queue is four times of number of employees.
 2. If the Account id ends with '00', the queue will be put on front.
 3. If there are multiple account id that ends with '00', the order for '00' will be normal queue.
 (Ex)  (Previous:100, 123, 534, 221) + (Enqueue: 200) = (New order: 100, 200, 123, 534, 221)
+
+Start from this link
 
 #### Solution
 

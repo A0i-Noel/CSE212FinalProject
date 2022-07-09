@@ -54,14 +54,99 @@ However, if the change affect only Head or Tail (like when it will be used as Qu
 ### Insert,  Remove, and Replace
 #### - Insert
 ##### 1. Case Head
+![](Assets/LinkedList/AddHead.png)
+After Add new node, indicate,
+1. Node 1 is New Node's Next
+2. New Node is Node 1's Previous,
+3. New Node is the new Head
+```python
+new_node.next = self.head # 1) Connect new node to the previous head
+self.head.prev = new_node # 2) Connect the previous head to the new node
+self.head = new_node      # 3) Update the head to point to the new node
+```
 ##### 2. Case Tail
+![](Assets/LinkedList/AddTail.png)
+After Add new node, indicate,
+1. New Node is Node 4's Next
+2. Node 4 is new Node's Previous
+3. New Node is the new Tail
+```python
+new_node.prev = self.tail # 1) Connect new node to the previous tail
+self.tail.next = new_node # 2) Connect the previous tail to the new node
+self.tail = new_node      # 3) Update the tail to point to the new node
+```
 ##### 3. Case middle 
+For inserting new Node in the middle of Linked List:
+1. Search Node before the target place
+2. New Node is Node 2's Next
+3. Node 3 is New Node's Next
+4. Node 2 is New Node's Previous
+5. New Node is Node 3's Previous
+![](Assets/LinkedList/Insert.png)
+```python
+curr = self.head
+        while curr is not None:
+            if curr.data == value:
+                # If the location of 'value' is at the end of the list,
+                # then we can call insert_tail to add 'new_value'
+                if curr == self.tail:
+                    self.insert_tail(new_value)
+                # For any other location of 'value', need to create a 
+                # new node and reconenct the links to insert.
+                else:
+                    new_node = LinkedList.Node(new_value)
+                    new_node.prev = curr       # Connect new node to the node containing 'value'
+                    new_node.next = curr.next  # Connect new node to the node after 'value'
+                    curr.next.prev = new_node  # Connect node after 'value' to the new node
+                    curr.next = new_node       # Connect the node containing 'value' to the new node
+                return # We can exit the function after we insert
+            curr = curr.next # Go to the next node to search for 'value'node
+```
 #### - Remove
+For removing a Node, the Prev and Next relationship should be dropped like following them,
 ##### 1. Case Head
+For removing Head,
+1. Disconnect the second node from the first node
+2. Update the head to point to the second node
+![](Assets/LinkedList/RemoveHead.png)
+```python
+self.head.next.prev = None  # 1) Disconnect the second node from the first node
+self.head = self.head.next  # 2) Update the head to point to the second node
+```
 ##### 2. Case Tail
+For removing Tail,
+1. Disconnect the second last node from the last node
+2. Update the tail to point to the second last node
+![](Assets/LinkedList/RemoveTail.png)
+```python
+self.tail.prev.next = None # 1) Disconnect the second last node from the last node
+self.tail = self.tail.prev # 2) Update the tail to point to the second last node
+```
 ##### 3. Case middle 
+For removing Middle,
+1. Search target Node to remove
+2. Connect target previous Node and Target next Node
+a. Node 2's Next is Node 4
+b. Node 4's Prev is Node 2
+![](Assets/LinkedList/RemoveMiddle.png)
+```python
+curr = self.head
+while curr is not None: #1 Search target
+    if curr.data == value:
+        if curr == self.head:
+            self.head = curr.next
+            self.head.prev = None
+        elif curr == self.tail:
+            self.tail = curr.prev
+            self.tail.next = None
+        else:
+            curr.prev.next = curr.next #2) Node 2's Next is Node 4
+            curr.next.prev = curr.prev #3) Node 4's Prev is Node 2
+        return
+        
+    curr = curr.next 
+```
 #### - Replace
-##### 1. Case Head
-##### 2. Case Tail
-##### 3. Case middle 
+For replacing, find the target old data and replace only data in Node
+![](Assets/LinkedList/Replace.png)
 ### Problems and Solution
