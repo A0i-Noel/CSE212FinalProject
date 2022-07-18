@@ -162,9 +162,10 @@ while curr is not None:
 #### Problem
 
 Please fix errors in the _LinkedListPracticeProb File_ with Linked List method:
-1. 
-2. 
-3. 
+1. There are errors in _insert tail_, _remove head_, and _remove tail_
+2. Fill in pass in _insert head_, _insert after_, _remove_, _replace, and _everyOther_
+3. For _everyOther_ function, please display every other data from head.
+(Example: if the data => {1,2,3,4,5,6,7}, the output will be {1,3,5,7})
 - Start by downloading this link
 [LinkedListPracticeProb](Python/LinkedList/Problem.py)
 

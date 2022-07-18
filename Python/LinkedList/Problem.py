@@ -22,31 +22,22 @@ class LinkedList:
             self.tail = new_node
 
         else:
-            new_node.next = self.head 
-            self.head.prev = new_node
-            self.head = new_node
+            pass
 
     def insert_tail(self, value):
 
         new_node = LinkedList.Node(value) 
 
-        if self.tail is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.prev = self.tail
-            self.tail.next = new_node
-            self.tail = new_node
+        
+        new_node.prev = self.tail
+        self.tail.next = new_node
+        self.tail = new_node
 
     def remove_head(self):
 
-        if self.head == self.tail:
-            self.head = None
-            self.tail = None
-
-        elif self.head is not None:
-            self.head.next.prev = None 
-            self.head = self.head.next
+        
+        self.head.next.prev = None 
+        self.head = self.head.next
 
 
     def remove_tail(self):
@@ -54,61 +45,22 @@ class LinkedList:
         if self.tail == self.head:
             self.head = None
             self.tail = None
-        elif self.tail is not None:
-            self.tail.prev.next = None
-            self.tail = self.tail.prev
+  
 
     def insert_after(self, value, new_value):
 
-        curr = self.head
-        while curr is not None:
-            if curr.data == value:
-                if curr == self.tail:
-                    self.insert_tail(new_value)
-                else:
-                    new_node = LinkedList.Node(new_value)
-                    new_node.prev = curr      
-                    new_node.next = curr.next 
-                    curr.next.prev = new_node 
-                    curr.next = new_node  
-                return 
-            curr = curr.next
+        pass
 
     def remove(self, value):
 
-        curr = self.head
-        while curr is not None:
-            if curr.data == value:
-                if curr == self.head:
-                    self.head = curr.next
-                    self.head.prev = None
-                elif curr == self.tail:
-                    self.tail = curr.prev
-                    self.tail.next = None
-                else:
-                    curr.prev.next = curr.next 
-                    curr.next.prev = curr.prev
-                return
-                
-            curr = curr.next 
+        pass 
 
     def replace(self, old_value, new_value):
 
-        curr = self.head
-        while curr is not None:
-            if curr.data == old_value:
-                curr.data = new_value         
-    
-            curr = curr.next 
+        pass
 
     def everyOther(self):
-        curr = self.head
-        while curr is not None:
-            yield curr.data
-            if curr.next is not None:
-                curr = curr.next.next
-            else:
-                break
+        pass
         
     def __iter__(self):
         curr = self.head  

@@ -108,9 +108,9 @@ MUCK => 111111001110111101 (18 bits)
 Like the encoding example right above, Movie, video, article, or other stuff can be encoded shorter than without encoding rule.
 ### Problems and Solution
 Please fix errors in the _TreePracticeProb File_ with Linked List method:
-1. 
-2. 
-3. 
+1. There are some errors in  _contains_, please fix it
+2. There are pass  in _insert_ and _get_hight_, please fix it
+3. __Challenge__: Fix some error for Huffman Tree Functions
 Start from this link
 [TreePracticeProb](Python/Tree/Problem.py)
 
