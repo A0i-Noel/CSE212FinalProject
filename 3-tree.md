@@ -181,7 +181,8 @@ Like the encoding example right above, Movie, video, article, or other stuff can
 Please fix errors in the _TreePracticeProb File_ with Linked List method:
 1. There are some errors in  _contains_, please fix it
 2. There are pass  in _insert_ and _get_hight_, please fix it
-3. Try encode and decode by using Huffman Code which already implemented
+3. Before you run code, try encode this line, "May the Force be with you" and decode by using Huffman Code which already implemented
+(When you are ready, uncommented out and run code)
 [TreePracticeProb](Python/Tree/Problem.py)
 
 #### Solution
