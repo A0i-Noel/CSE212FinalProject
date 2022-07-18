@@ -84,13 +84,18 @@ class BST:
             return {node: binString}
         (L, R) = node.children()
         HMdict = {}
-        
+        HMdict.update(BST.Huffman_Tree(L,True,binString+"0"))
+        HMdict.update(BST.Huffman_Tree(R,True,binString+"1"))
         return HMdict
 
     def Huffman_code(self):
       line = BST._get_line()
       frequency = {}
-      
+      for l in line:
+        if l in frequency:
+          frequency[l] += 1
+        else:
+          frequency[l] = 1
 
       frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True) 
       Nodes = frequency
@@ -99,7 +104,8 @@ class BST:
         (key1, l1) = Nodes[-1]
         (key2, l2) = Nodes[-2]
         Nodes = Nodes[:-2]
-        
+        Node = BST.HMNode(key1, key2)
+        Nodes.append((Node, l1 + l2))
 
         Nodes = sorted(Nodes, key=lambda x: x[1], reverse=True)
 
@@ -147,27 +153,15 @@ print(tree.get_height()) #39
 print("#################################")
 
 print("CHALLENGE!")
-haffman = BST()
-haffman.Huffman_code() #Enter "May the Force be with you"
-"""Output
- Char | Huffman code 
-----------------------
- ' '  |          01
- 'e'  |         100
- 'y'  |         000
- 't'  |        1011
- 'h'  |        1010
- 'o'  |        1101
- 'M'  |        0010
- 'a'  |       00111
- 'F'  |       00110
- 'r'  |       11101
- 'c'  |       11100
- 'b'  |       11111
- 'w'  |       11110
- 'i'  |       11001
- 'u'  |       11000
 """
+For this question, please make Huffman Tree on paper before you run code below. Then please make Huffman code for this line "May the Force be with you".
+
+When your ready uncomment a code below
+"""
+
+# haffman = BST() 
+# haffman.Huffman_code() #Enter "May the Force be with you"
+
 print("#################################")
 
 print("Test5")

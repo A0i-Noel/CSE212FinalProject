@@ -142,5 +142,55 @@ class BST:
       for (char, freq) in frequency:
         print(' %-4r |%12s' % (char, huffmanCode[char]))
 
-a = BST()
-a.Huffman_code()
+###############################################################
+## DO NOT edit problems below
+
+print("Test1")
+tree = BST()
+tree.insert(7)
+tree.insert(10)
+tree.insert(3)
+tree.insert(5)
+tree.insert(8)
+tree.insert(13)
+tree.insert(1)
+tree.insert(3)
+for x in tree:
+    print(x) # 1 3 5 7 8 10 13
+print("#################################")
+
+print("Test2")
+print(1 in tree) # True
+print(10 in tree) # True
+print(4 in tree) # False
+print(12 in tree) # False
+print(9+1 in tree) # True
+print("#################################")
+
+print("Test3")
+print(tree.get_height()) # 3
+tree.insert(6)
+print(tree.get_height()) # 3
+tree.insert(12)
+for i in range(0,50):
+  tree.insert(i)
+print(tree.get_height()) #39
+print("#################################")
+
+print("CHALLENGE!")
+"""
+For this question, please make Huffman Tree on paper before you run code below. Then please make Huffman code for this line "May the Force be with you".
+
+When your ready uncomment a code below
+"""
+
+# haffman = BST() 
+# haffman.Huffman_code() #Enter "May the Force be with you"
+
+print("#################################")
+
+print("Test5")
+print("Based on the output above, Decode this below")
+print("00100011110111010")
+
+print("#################################")

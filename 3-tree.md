@@ -7,12 +7,15 @@ In this material, students will mainly learn __Binary Tree__.
 ### Visual and Structure Example to get image
 #### - Binary Tree
 In the Binary Tree method, the number of child Nodes is at most two Nodes (__right__ and __left__). Each child Nodes also can have other Nodes by acting like a parent Node. Then the tree which starts from new parent Nodes which is located under roots is called __subtree__. Also, if the Node is not connecting with any Node, which means the Node is the bottom of tree, is called __leaf__ node.
+
 ![](Assets/Tree/TreeExample.png)
 
 #### - Binary Search Tree (BST)
 Binary Search Tree is a type of binary tree which is organized based on a rule that the number which is bigger than parent Node keep moving to right, and the number which is smaller than parent Node keep moving to left up to being leaf Node.
-Then the number of Node from Root to bottom leaf is called __Height__ of the tree (Root is height: 0, and the children from Root is height: 1).
+Then the number of Node from Root to bottom leaf is called __Height__ of the tree (Root is height: 0, and the children from Root is height: 1)
+
 ![](Assets/Tree/BSTExample.png)
+
 ### Process and Performance
 The advantage of Binary Search Tree is that it automatically organizes the data with minimum height as short as possible. Also the performance of Binary Search Tree is depends of the height of the tree => __O(height)__ . So, this method can organize data automatically and most efficiently. 
 
@@ -26,7 +29,9 @@ It means Binary Search Tree can insert and remove with __O(log n)__ performance.
 
 ### Recursion
 The best practice to use Tree method is __recursion__. Binary tree method traverses the nodes to look up data unlikely Queue, Stack, and Linked List. 
+
 ![One Unit of Nodes structure](Assets/Tree/Unit.png)
+
 Since a Node has left or/and right nodes as children, this structure can recognized that there are These units of structure up to leaves (which doesn't have any child Nodes.) So, By checking both right and left data, and right's rights and left data and left's right and left data simultaneously.... up to leave Nodes (which right and left data are None), This tree method shows the traversal data quickly.
 
 Look at code example:
@@ -41,6 +46,7 @@ Look at code example:
 ```
 ### Best Usage
 As it says in performance, Binary Tree has a really good efficient way to handle data. So, it can be used for decision trees, Machine Learning, and sorting. In this material, it says root Node has right and left. It means it can be used as 0 or 1, yes or no, and o or x. 
+
 ![](Assets/Tree/BestUsage.png)
 
 There are only two options at most, so computer can handle the data quickly even though the amount of data increase exponentially.
@@ -94,26 +100,92 @@ def _contains(self, data, node):
 __HuffmanTree__ is one type of binary tree which is mainly used to compress data into short (unlike ASCII). This makes it possible to make data structure with lower encoding. 
 The process of Huffman Tree is that:
 1. count each letter frequency
+
 ![](Assets/Tree/HTFreqTable.png)
+
 2. Build binary tree from leave Nodes. Then start from lowest letter, in example, z(2) and k(7) is the lowest Nodes. Add up these two Nodes, then memory will be 9 (2 + 7). Next lowest two Nodes are (9: which comes from z+k) and M(24). So the sum Node will be 33 (9 + 24). Repeating this process like image below.
 After building up Huffman Tree, assign left Node 0, and right Node 1.
+
 ![](Assets/Tree/HuffmanTree.png)
+
 3. Based on the Huffman Tree above, each letter can be encode like this:
+
 ![](Assets/Tree/HTencode.png)
 
 Based on this rule created by Huffman Tree. letter can encode and decode like this:
 DEED => 10100101 (8 bits)
 MUCK => 111111001110111101 (18 bits)
 
+```python
+class HMNode(object):
+        def __init__(self, left=None, right=None):
+          self.left = left
+          self.right = right
+
+        def children(self):
+            return (self.left, self.right)
+
+        def nodes(self):
+            return (self.left, self.right)
+
+        def __str__(self):
+            return '%s_%s' % (self.left, self.right)
+
+def _get_line():
+        line = input(str("What is the line you want to make HuffmanTree?: "))
+        return line
+
+    def Huffman_Tree(node, left=True, binString=""):
+        if type(node) is str:
+            return {node: binString}
+        (L, R) = node.children()
+        HMdict = {}
+        HMdict.update(Huffman_Tree(L,True,binString+"0"))
+        HMdict.update(Huffman_Tree(R,True,binString+"1"))
+        return HMdict
+
+    def Huffman_code(self):
+      line = BST._get_line()
+      frequency = {}
+      for l in line:
+        if l in frequency:
+          frequency[l] += 1
+        else:
+          frequency[l] = 1
+
+      frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True) 
+      Nodes = frequency
+
+      while len(Nodes) > 1:
+        (key1, l1) = Nodes[-1]
+        (key2, l2) = Nodes[-2]
+        Nodes = Nodes[:-2]
+        Node = HMNode(key1, key2)
+        Nodes.append((Node, l1 + l2))
+
+        Nodes = sorted(Nodes, key=lambda x: x[1], reverse=True)
+
+      huffmanCode = Huffman_Tree(Nodes[0][0])
+
+      print(' Char | Huffman code ')
+      print('----------------------')
+      for (char, freq) in frequency:
+        print(' %-4r |%12s' % (char, huffmanCode[char]))
+
+a = BST()
+a.Huffman_code()
+```
+
 Like the encoding example right above, Movie, video, article, or other stuff can be encoded shorter than without encoding rule.
 ### Problems and Solution
 Please fix errors in the _TreePracticeProb File_ with Linked List method:
 1. There are some errors in  _contains_, please fix it
 2. There are pass  in _insert_ and _get_hight_, please fix it
-3. __Challenge__: Fix some error for Huffman Tree Functions
-Start from this link
+3. Try encode and decode by using Huffman Code which already implemented
 [TreePracticeProb](Python/Tree/Problem.py)
 
 #### Solution
 
 [Answer](Python/Tree/Solution.py)
+
+#### [Go back to welcome page](0-welcome.md)

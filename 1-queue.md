@@ -5,7 +5,9 @@ In an everyday life, people will have opportunities to wait for something like a
 Queue is a method to make list which is characterized __First In First Out(FIFO)__. This method is good for making wait lists for long process. 
 
 ### Visual and Structure Example to get image
+
 ![FIFO Visual Example](Assets/Queue/Q-Example1.png)
+
 As this image represents, this method is always keep tracking what is the first item and what new item will be added. 
 ### Process and Performance
 Queue method tracks which is the next output and which is the last input by __Front__ and __Back(or Rear)__. And they are keep changing when input or output occur. This input and output process is called  __Enqueue__ and __Dequeue__. When front item is dequeued, second item will be the new front item. As same as this, when new item is enqueued, the item will be the new back instead of previous back item.
@@ -26,7 +28,9 @@ self.queue.append(data)
 ```
 
 #### -Dequeue
+
 ![Dequeue Example](Assets/Queue/DequeueExample.png)
+
 Dequeue is a process to output item from queue. Manly front item will be output, but it can change based on the condition (queue's priority level). Then, the performance will be O(n)
 ```python
 if len(self.queue) <= 0:
@@ -38,13 +42,16 @@ return value
 
 ### _Circular Queue (Advanced)_
 Circular queue is one type of queue structure. However, unlikely the regular queue structure, circular queue is designed circle-like structure by __connecting front and back__
+
 ![](Assets/Queue/CircularQueue.png)
 
 The advantage of using circular queue is not to need having non-usable empty space. In the image below, 0 and 1 is no more used after enqueue.
+
 ![](Assets/Queue/Regular.png)
 
 However, by using circular queue, there are no more non-usable space, which means it can be used higher efficient performance of __O(1)__.
 The flow of process is like this:
+
 ![](Assets/Queue/CQProcess.png)
 
 As you can see, circular queue structure keeps tracking which one is the front and end. So, the place to stock data is not matter, the dequeue is processed from front, enqueue is processed from back every time.
@@ -56,6 +63,8 @@ Queue is good for the operation which does not need to or cannot be processed im
 When many people can access simultaneously, queue method works to make the process easier. In many case, they set the __maximum size__ of the queue not to make items or customers waiting for a long time. 
 
 #### Example (Problem)
+
+- Please implement coding with queue structure that manages customer  queue for problem shooting. Then make sure, the queue has a maximum number, and if it is exceeded, show comment, "Maximum Number of Customers in Queue." Customers can add their name, account id, and problem. And this queue data shows waiting customer information.
 ```python
 class Customer_Service:
     """
@@ -152,6 +161,7 @@ service.add_new_customer()
 print("Service Queue: ", service)
 ```
 #### Output
+
 ![Output](Assets/Queue/MaximumSize.png)
 
 ### Problems and Solution.
@@ -173,4 +183,6 @@ From QueuePracticeProb file below, please implement a code with queue method. Th
 - Do not download up to finishing your work
 [Answer](Python/Queue/Solution.py)
 
+
+#### [Go back to welcome page](0-welcome.md)
 

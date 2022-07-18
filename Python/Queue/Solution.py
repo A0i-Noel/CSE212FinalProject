@@ -73,3 +73,57 @@ class Register_Service:
         return result
         
 
+###############################################################
+## Do NOT edit question below
+        
+print("Test1")
+course = Register_Service(2,2)
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.exit_course()
+course.add_new_course()
+print("Wait list:", course) ## expected output: {course name (course id): student name},{course name (course id): student name}
+print("#################################")
+
+print("Test2")
+course = Register_Service(1,2)
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+print("Wait list", course) ## expected output:"I'm sorry, but there is no space even in wait list. please retry after taking time" twice and as same result as test1
+print("#################################")
+
+print("Test3")
+course = Register_Service(4,2)
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+print("Wait list", course) ## expected output: empty wait list
+
+print("Test4")
+course = Register_Service(0,0)
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+print("Wait list", course) ## expected output: {course name (course id): student name}
+print("#################################")
+
+print("Test5")
+course = Register_Service(0,0)
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+course.exit_course()
+course.exit_course()
+course.exit_course()
+course.add_new_course()
+course.add_new_course()
+course.add_new_course()
+print("Wait list", course) ## expected output: last input of {course name (course id): student name}
