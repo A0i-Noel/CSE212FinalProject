@@ -47,8 +47,7 @@ def __init__(self):
 The advantage of this method is that it can easily look up the stored data with order or data condition. when the Linked List is inserted new Node or remove Node from list, it is looked up from Head to Tail, so the performance will be __O(n)__.
 However, if the change affect only Head or Tail (like when it will be used as Queue method), the performance will be __O(1)__
 ### Best Usage
-
-### Similar points with Queue and differences
+Linked List can save memory more effectively than fixed array. Also this method just indicates the connection of each Nodes, so they can move flexibly. However, if data needs to be looked up, they use liner look up from head to tail, which is not effective enough.
 
 
 ### Insert,  Remove, and Replace
@@ -149,4 +148,27 @@ while curr is not None: #1 Search target
 #### - Replace
 For replacing, find the target old data and replace only data in Node
 ![](Assets/LinkedList/Replace.png)
-### Problems and Solution
+```python
+curr = self.head
+while curr is not None:
+    if curr.data == old_value:
+        curr.data = new_value
+        
+        
+    curr = curr.next 
+```
+### Problems and Solution.
+
+#### Problem
+
+Please fix errors in the _LinkedListPracticeProb File_ with Linked List method:
+1. 
+2. 
+3. 
+- Start by downloading this link
+[LinkedListPracticeProb](Python/LinkedList/Problem.py)
+
+#### Solution
+
+- Do not download up to finishing your work
+[Answer](Python/LinkedList/Solution.py)

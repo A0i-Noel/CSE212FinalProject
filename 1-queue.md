@@ -1,6 +1,7 @@
 # Queue
 
 ### Introduction
+In an everyday life, people will have opportunities to wait for something like a line for ATM or pay check for glossaries. This line is called queue, and it can be used in a programming world.
 Queue is a method to make list which is characterized __First In First Out(FIFO)__. This method is good for making wait lists for long process. 
 
 ### Visual and Structure Example to get image
@@ -12,7 +13,7 @@ Queue method tracks which is the next output and which is the last input by __Fr
 ![Front and Back](Assets/Queue/QueueProcess.png)
 
 
-As an algorithms, it is working __O(1)__ performances except dequeue under dynamic array situation. Performance of dequeue is __O(n) because they need to 
+As an algorithms, it is working __O(1)__ performances except dequeue under dynamic array situation. Performance of dequeue is __O(n)__ because they need to count from first empty data to the current front. However, __circular queue__(explanation below) has __0(1)__ performance by keep tracking front data.
 ### Enqueue and Dequeue
 #### -Enqueue
 Enqueue is a process to input new item at the end of other queue. This new item acts as a back (rear) which can be a sign this item is the last one.
@@ -36,7 +37,17 @@ return value
 ```
 
 ### _Circular Queue (Advanced)_
+Circular queue is one type of queue structure. However, unlikely the regular queue structure, circular queue is designed circle-like structure by __connecting front and back__
+![](Assets/Queue/CircularQueue.png)
 
+The advantage of using circular queue is not to need having non-usable empty space. In the image below, 0 and 1 is no more used after enqueue.
+![](Assets/Queue/Regular.png)
+
+However, by using circular queue, there are no more non-usable space, which means it can be used higher efficient performance of __O(1)__.
+The flow of process is like this:
+![](Assets/Queue/CQProcess.png)
+
+As you can see, circular queue structure keeps tracking which one is the front and end. So, the place to stock data is not matter, the dequeue is processed from front, enqueue is processed from back every time.
 ### Best Usage
 Queue is good for the operation which does not need to or cannot be processed immediately, but have to be processed in FIFO order.
 
@@ -147,16 +158,19 @@ print("Service Queue: ", service)
 
 #### Problem
 
-Based on the example above, please implement a code with queue method. The conditions are following:
-1. The maximum size of queue is four times of number of employees.
-2. If the Account id ends with '00', the queue will be put on front.
-3. If there are multiple account id that ends with '00', the order for '00' will be normal queue.
-(Ex)  (Previous:100, 123, 534, 221) + (Enqueue: 200) = (New order: 100, 200, 123, 534, 221)
+From QueuePracticeProb file below, please implement a code with queue method. The conditions are following:
+1. Students can register course. But if the number of students exceed limited size of the course, they will be in wait list.
+(The course data is already implemented)
+2. The wait list shows students their name from front.
+3. If a student in the course exits, the front student in wait list will be in the course.
 
-Start from this link
+
+- Start by downloading this link
+[QueuePracticeProb](Python/Queue/Problem.py)
 
 #### Solution
 
-[Answer]()
+- Do not download up to finishing your work
+[Answer](Python/Queue/Solution.py)
 
 
